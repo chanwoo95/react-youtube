@@ -39,3 +39,17 @@ button {
     border: none;
     color: white;
 }
+
+.video-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.video-item {
+    margin-right: 50px;
+}
+
+.video-title {
+    font-size: 10px;
+}
