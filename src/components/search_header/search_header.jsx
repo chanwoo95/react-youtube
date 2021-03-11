@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styles from '../search_header/search_header.module.css';
 
 const SearchHeader = ({ search }) => {
     const inputRef = useRef();
@@ -12,25 +13,36 @@ const SearchHeader = ({ search }) => {
         handleSubmit();
     };
 
-    const onSubmit = (event) => {
+    const onKeyPress = (event) => {
         if (event.key === 'Enter') {
             handleSubmit();
         }
     };
 
     return (
-        <header>
-            <div className="search-logo">
-                <img src="images/logo.png" alt="search-logo" />
-                <span className="search-title">YouTube</span>
+        <header className={styles.header}>
+            <div className={styles.logo}>
+                <img
+                    className={styles.img}
+                    src="images/logo.png"
+                    alt="search-logo"
+                />
+                <h1 className={styles.title}>YouTube</h1>
             </div>
+
             <div>
-                <input ref={inputRef} type="text" onKeyPress={onSubmit} />
+                <input
+                    ref={inputRef}
+                    className={styles.input}
+                    type="text"
+                    onKeyPress={onKeyPress}
+                />
                 <button onClick={onClick}>
-                    <i class="fas fa-search"></i>
+                    <i className="fas fa-search"></i>
                 </button>
             </div>
-            <div className="search-btn">
+
+            <div className={styles.button}>
                 <i className="fas fa-video"></i>
                 <i className="fas fa-bell"></i>
             </div>
