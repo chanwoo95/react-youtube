@@ -9,6 +9,7 @@ const VideoItem = ({ video }) => (
                 src={video.snippet.thumbnails.medium.url}
                 alt="video_thumbnails"
             />
+
             <div className={styles.metadata}>
                 <p className={styles.title}>{video.snippet.title}</p>
                 <p className={styles.channel}>{video.snippet.channelTitle}</p>

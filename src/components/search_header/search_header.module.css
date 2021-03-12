@@ -1,0 +1,53 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0.5em 0.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 0.8rem;
+}
+
+.img {
+    width: 40px;
+    height: 40px;
+}
+
+.title {
+    margin: 0;
+    margin-left: 0.6rem;
+    font-size: 24px;
+}
+
+.input {
+    outline: 0;
+    width: 400px;
+    padding: 10px;
+}
+
+.inputSet {
+    display: flex;
+}
+
+.button {
+    background-color: lightgrey;
+    outline: none;
+}
+
+.buttonImg {
+    width: 30px;
+}
+
+.buttonSet {
+    font-size: 1.2rem;
+}
+
+.setImg {
+    cursor: pointer;
+    margin: 0rem 0.5rem;
+}

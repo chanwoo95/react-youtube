@@ -7,6 +7,7 @@ const SearchHeader = ({ search }) => {
     const handleSubmit = () => {
         const value = inputRef.current.value;
         search(value);
+        inputRef.current.value = '';
     };
 
     const onClick = () => {
@@ -24,27 +25,35 @@ const SearchHeader = ({ search }) => {
             <div className={styles.logo}>
                 <img
                     className={styles.img}
-                    src="images/logo.png"
+                    src="/images/logo.png"
                     alt="search-logo"
                 />
                 <h1 className={styles.title}>YouTube</h1>
             </div>
 
-            <div>
+            <div className={styles.inputSet}>
                 <input
                     ref={inputRef}
                     className={styles.input}
-                    type="text"
+                    type="search"
                     onKeyPress={onKeyPress}
                 />
-                <button onClick={onClick}>
-                    <i className="fas fa-search"></i>
+                <button
+                    className={styles.button}
+                    type="submit"
+                    onClick={onClick}
+                >
+                    <img
+                        className={styles.buttonImg}
+                        src="/images/search.png"
+                        alt="search-button"
+                    />
                 </button>
             </div>
 
-            <div className={styles.button}>
-                <i className="fas fa-video"></i>
-                <i className="fas fa-bell"></i>
+            <div className={styles.buttonSet}>
+                <i className={`fas fa-video ${styles.setImg}`}></i>
+                <i className={`fas fa-bell ${styles.setImg}`}></i>
             </div>
         </header>
     );
