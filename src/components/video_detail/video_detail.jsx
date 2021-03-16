@@ -6,8 +6,8 @@ const VideoDetail = ({ video }) => {
             <iframe
                 id="ytplayer"
                 type="text/html"
-                width="720"
-                height="405"
+                width="100%"
+                height="500px"
                 src={`https://www.youtube.com/embed/${video.id}`}
                 frameborder="0"
                 allowfullscreen
