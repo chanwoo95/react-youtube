@@ -2,32 +2,38 @@ import axios from 'axios';
 
 class Youtube {
     constructor(key) {
-        const axios = axios.create({
-            baseURL: 'https://www.googleapis.com/youtube/v3/',
-            headers: { key: key },
+        this.youtube = axios.create({
+            baseURL: 'https://www.googleapis.com/youtube/v3',
+            params: { key: key },
         });
     }
 
     async mostPopular() {
-        const response = await fetch(
-            aixos.get('videos', {
-                part: snippet,
-                chart: mostPopular,
+        const response = await this.youtube.get('videos', {
+            params: {
+                part: 'snippet',
+                chart: 'mostPopular',
                 maxResults: 24,
-                regionCode: KR,
-            }),
-        );
-        const result = await response.json();
-        return result.items;
+                regionCode: 'KR',
+            },
+        });
+        return response.data.items;
     }
 
     async search(query) {
-        const response = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=24&q=${query}&type=video&regionCode=KR&key=${this.key}`,
-            this.getRequestOptions,
-        );
-        const result = await response.json();
-        return result.items.map((item) => ({ ...item, id: item.id.videoId }));
+        const response = await this.youtube.get('search', {
+            params: {
+                part: 'snippet',
+                maxResults: 24,
+                type: 'video',
+                regionCode: 'KR',
+                q: query,
+            },
+        });
+        return response.data.items.map((item) => ({
+            ...item,
+            id: item.id.videoId,
+        }));
     }
 }
 
